@@ -1,60 +1,65 @@
 library IEEE;
 use IEEE.std_logic_1164.all;
 use IEEE.numeric_std.all;
+use IEEE.math_real.all;
 
-entity fir is
+entity simple_fir is
     port (
         clk : in std_logic;
-        noisy_signal : in std_logic_vector(15 downto 0);
-        filtered_signal : out std_logic_vector(15 downto 0)
+        reset : in std_logic;
+        input_signal : in std_logic_vector(15 downto 0);
+        sine_15kHz : in std_logic_vector(15 downto 0);
+        sine_1kHz : in std_logic_vector(15 downto 0);
+        output_signal : out std_logic_vector(15 downto 0)
     );
-end entity fir;
+end entity simple_fir;
 
-architecture arch of fir is
-    type coeff_type is array(0 to 8) of integer signed(15 downto 0);
-    signal coeff : coeff_type := (X"04F6", X"0AE4", X"1089",X"1496", X"160F", X"1496", X"1089", X"0AE4", X"04F6");
-    type delayed_signal_type is array(0 to 8) of signed(15 downto 0);
-    type prod_type is array(0 to 8) of signed(31 downto 0);
-    type sum_0_type is array(0 to 4) of signed(32 downto 0);
-    type sum_1_type is array(0 to 2) of signed(33 downto 0);
-    type sum_2_type is array(0 to 1) of signed(34 downto 0);
+architecture rtl of simple_fir is
+    -- Design a 6 kHz lowpass filter with MATLAB coefficients
+    type coeff_array is array(0 to 8) of signed(17 downto 0);
+    constant COEFFS : coeff_array := (
+        to_signed(integer(-0.0024 * 2**17), 18), -- -0.0024
+        to_signed(integer(0.0073 * 2**17), 18),  --  0.0073
+        to_signed(integer(0.0606 * 2**17), 18),  --  0.0606
+        to_signed(integer(0.1691 * 2**17), 18),  --  0.1691
+        to_signed(integer(0.2654 * 2**17), 18),  --  0.2654 (center)
+        to_signed(integer(0.1691 * 2**17), 18),  --  0.1691
+        to_signed(integer(0.0606 * 2**17), 18),  --  0.0606
+        to_signed(integer(0.0073 * 2**17), 18),  --  0.0073
+        to_signed(integer(-0.0024 * 2**17), 18)  -- -0.0024
+    );
 
-    signal delayed_signal : delayed_signal_type := (others => (others => '0'));
-    signal prod : prod_type := (others => (others => '0'));
-    signal sum_0 : sum_0_type := (others => (others => '0'));
-    signal sum_1 : sum_1_type := (others => (others => '0'));
-    signal sum_2 : sum_2_type := (others => (others => '0'));
-    signal sum_3 : signed(35 downto 0) := (others => '0');
+    -- Delay line for input samples
+    type delay_line_type is array(0 to 8) of signed(17 downto 0);
+    signal delay_line : delay_line_type;
+
 begin
-    
-    proccess (clk)
+    process(clk, reset)
+        -- Declare accumulator as variable
+        variable accumulator : signed(35 downto 0);
+        variable temp_mult : signed(35 downto 0);
     begin
-        if rising_edge(clk) then
-            delayed_signal(0) <= noisy_signal;
-            for i in 1 to 8 loop
-                delayed_signal(i) <= delayed_signal(i-1);
+        if reset = '1' then
+            -- Reset everything
+            delay_line <= (others => (others => '0'));
+            output_signal <= (others => '0');
+        elsif rising_edge(clk) then
+            -- Shift delay line
+            for i in 8 downto 1 loop
+                delay_line(i) <= delay_line(i-1);
             end loop;
+            -- Sign extend input to match delay line width
+            delay_line(0) <= resize(signed(input_signal), 18);
 
+            -- Compute FIR filter (direct form)
+            accumulator := (others => '0');
             for i in 0 to 8 loop
-                prod(i) <= delayed_signal(i) * coeff(i);
+                temp_mult := delay_line(i) * COEFFS(i);
+                accumulator := accumulator + temp_mult;
             end loop;
 
-            sum_0(0) <= (prod(0)(31) & prod(0)) + (prod(1)(31) & prod(1));
-            sum_0(1) <= (prod(2)(31) & prod(2)) + (prod(3)(31) & prod(3));
-            sum_0(2) <= (prod(4)(31) & prod(4)) + (prod(5)(31) & prod(5));
-            sum_0(3) <= (prod(6)(31) & prod(6)) + (prod(7)(31) & prod(7));
-            sum_0(4) <= (prod(8)(31) & prod(8));
-
-            sum_1(0) <= (sum_0(0)(32) & sum_0(0)) + (sum_0(1)(32) & sum_0(1));
-            sum_1(1) <= (sum_0(2)(32) & sum_0(2)) + (sum_0(3)(32) & sum_0(3));
-            sum_1(2) <= (sum_0(4)(32) & sum_0(4));
-
-            sum_2(0) <= (sum_1(0)(33) & sum_1(0)) + (sum_1(1)(33) & sum_1(1));
-            sum_2(1) <= (sum_1(2)(33) & sum_1(2));
-
-            sum_3 <= (sum_2(0)(34) & sum_2(0)) + (sum_2(1)(34) & sum_2(1));
-
-            filtered_signal <= std_logic_vector(sum_3(15 downto 0));
+            -- Scale and output (right shift to reduce precision)
+            output_signal <= std_logic_vector(resize(shift_right(accumulator, 17), 16));
         end if;
     end process;
-end architecture arch;
+end architecture rtl;
