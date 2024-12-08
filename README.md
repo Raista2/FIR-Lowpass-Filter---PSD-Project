@@ -56,7 +56,7 @@ Implements the FIR filter logic using a finite state machine (FSM).
 ### **Entity Declaration**
 The testbench provides an environment to simulate the behavior of the `simple_fir` design under various input conditions.
 
-### **Architecture: `testbench`
+### **Architecture: `testbench`**
 Simulates the `simple_fir` filter with a 100 kHz sampling rate.
 
 #### **Key Features**
