@@ -1,4 +1,4 @@
-# Simple FIR Filter Documentation
+# Simple FIR Filter Documentation 📡📻
 
 This documentation covers the implementation of a simple Finite Impulse Response (FIR) filter and its associated testbench for simulation. The FIR filter processes input signals to produce a filtered output using predefined coefficients.
 
