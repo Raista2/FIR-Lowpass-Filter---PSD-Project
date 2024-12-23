@@ -106,7 +106,7 @@ Generates a clock signal with a 10 ns period.
 ### **Expected Output**
 - FSM states transition as per input signals.
 - Filter output closely approximates the 1 kHz sine wave, attenuating the 15 kHz component.
-![FIR Lowpass Filter Simulation](https://hackmd.io/_uploads/BkY2CBXEyx.jpg)
+![FIR Lowpass Filter Simulation](https://hackmd.io/_uploads/SkJJ3YUH1x.png)
 
 ---
 
