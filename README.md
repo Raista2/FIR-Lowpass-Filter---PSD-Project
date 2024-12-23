@@ -1,4 +1,4 @@
-# Simple FIR Filter Documentation
+# Simple FIR Filter Documentation 📡📻
 
 This documentation covers the implementation of a simple Finite Impulse Response (FIR) filter and its associated testbench for simulation. The FIR filter processes input signals to produce a filtered output using predefined coefficients.
 
@@ -56,7 +56,7 @@ Implements the FIR filter logic using a finite state machine (FSM).
 ### **Entity Declaration**
 The testbench provides an environment to simulate the behavior of the `simple_fir` design under various input conditions.
 
-### **Architecture: `testbench`
+### **Architecture: `testbench`**
 Simulates the `simple_fir` filter with a 100 kHz sampling rate.
 
 #### **Key Features**
@@ -106,8 +106,21 @@ Generates a clock signal with a 10 ns period.
 ### **Expected Output**
 - FSM states transition as per input signals.
 - Filter output closely approximates the 1 kHz sine wave, attenuating the 15 kHz component.
+![FIR Lowpass Filter Simulation](https://hackmd.io/_uploads/BkY2CBXEyx.jpg)
 
---
+---
+
+### **Module Used**
+- Dataflow
+- Behavorial
+- Testbench
+- Structural
+- Looping
+- Function
+- FSM
+
+
+---
 
 ### **Kelompok P-25**
 - Ahmad Fariz Khairi (2306211370)
