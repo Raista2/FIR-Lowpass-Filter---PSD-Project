@@ -17,180 +17,174 @@ Z2 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
 !i122 26
 w1733672075
 Z3 dC:/Users/Kyomoto/FIRLowpassFilter_PSDProject
-Z4 8C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd
-Z5 FC:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd
+8C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd
+FC:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd
 l0
 L6 1
 Veg4dQTJRi^kHb7cfN:KfT1
 !s100 l9M1e9mXKAVBO]97XJf]31
-Z6 OV;C;2020.1;71
+Z4 OV;C;2020.1;71
 32
 !s110 1733672078
 !i10b 1
 !s108 1733672078.000000
-Z7 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd|
-Z8 !s107 C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd|
+!s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd|
+!s107 C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir.vhd|
 !i113 1
-Z9 o-work work -2002 -explicit
-Z10 tExplicit 1 CvgOpt 0
+Z5 o-work work -2002 -explicit
+Z6 tExplicit 1 CvgOpt 0
 Esimple_fir
-Z11 w1733672436
-Z12 DPx4 ieee 9 math_real 0 22 gNk<PdFJ<XNPcfef`f?Z81
-R0
+Z7 w1734936303
+Z8 DPx4 ieee 9 math_real 0 22 Sk6CSihbPL<f[^Shm]=KX0
+Z9 DPx4 ieee 11 numeric_std 0 22 :ASDNFgHXf_ih3J@9F3Ze1
 R1
-R2
-!i122 45
-R3
-R4
-R5
+Z10 DPx4 ieee 14 std_logic_1164 0 22 eNV`TJ_GofJTzYa?f<@Oe1
+Z11 dC:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter
+Z12 8C:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir.vhd
+Z13 FC:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir.vhd
 l0
-L6 1
+L6
 VF]_<@nHWSHgn>C=J:_:f;3
 !s100 VRgY6k@i[ImN:Qk1^lTaU1
-R6
+Z14 OV;C;10.5b;63
 32
-Z13 !s110 1733673750
+Z15 !s110 1734936358
 !i10b 1
-Z14 !s108 1733673750.000000
-R7
-R8
+Z16 !s108 1734936357.000000
+Z17 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir.vhd|
+Z18 !s107 C:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir.vhd|
 !i113 1
-R9
-R10
+R5
+R6
 Artl
-R12
-R0
-R1
-R2
-Z15 DEx4 work 10 simple_fir 0 22 F]_<@nHWSHgn>C=J:_:f;3
-!i122 45
-l42
-L19 75
-VaLMM5RmVL=5=K:IKI?3bd3
-!s100 CeFf;k<eF=j=o12f8gh453
-R6
-32
-R13
-!i10b 1
-R14
-R7
 R8
-!i113 1
 R9
-R10
-Esimple_fir_tb
-Z16 w1733673744
-Z17 DPx4 work 17 state_mapping_pkg 0 22 _n>KG2=c5ik@?C?MCGXWk0
-R12
-R0
 R1
-R2
-!i122 46
-R3
-Z18 8C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd
-Z19 FC:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd
-l0
-L33 1
-VScE@dmPEB`FL=z=`jl@7n3
-!s100 PMkSW4mVV1MlNLhFD3h<T0
-R6
-32
-R13
-!i10b 1
-R14
-Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd|
-Z21 !s107 C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd|
-!i113 1
-R9
 R10
-Atestbench
+Z19 DEx4 work 10 simple_fir 0 22 F]_<@nHWSHgn>C=J:_:f;3
+l43
+L18
+VRP@X<ADb88<fP`Md;g_H?3
+!s100 6AFk_cKSQ75Zf?>d9EAck0
+R14
+32
 R15
-R17
-R12
-R0
-R1
-R2
-DEx4 work 13 simple_fir_tb 0 22 ScE@dmPEB`FL=z=`jl@7n3
-!i122 46
-l50
-L36 97
-V9LJHDiJ=I7lEV:E[`zZnC2
-!s100 ]N4EWNVlGA[hK:NzGmjXX3
-R6
-32
-R13
 !i10b 1
-R14
-R20
-R21
+R16
+R17
+R18
 !i113 1
+R5
+R6
+Esimple_fir_tb
+Z20 w1734936346
+Z21 DPx4 work 17 state_mapping_pkg 0 22 LX8VR<C=Jg>7D_=@YB<6g0
+R8
 R9
+R1
 R10
+R11
+Z22 8C:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir_tb.vhd
+Z23 FC:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir_tb.vhd
+l0
+L32
+VLA2:_ZX]1i1>Lg=YAEH1B0
+!s100 9Gmz=0h`a@`0kD7U^Jj=H2
+R14
+32
+Z24 !s110 1734936360
+!i10b 1
+Z25 !s108 1734936360.000000
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir_tb.vhd|
+Z27 !s107 C:/Users/raiha/Documents/Kuliah/Semester 3/PSD1/Proyek Akhir/FIR Lowpass Filter/fir_tb.vhd|
+!i113 1
+R5
+R6
+Atestbench
+R19
+R21
+R8
+R9
+R1
+R10
+Z28 DEx4 work 13 simple_fir_tb 0 22 LA2:_ZX]1i1>Lg=YAEH1B0
+l50
+L35
+Z29 V9DK@Kedg9M8mlVGJYDhBm2
+Z30 !s100 [G<0mF^LN^TF[aZZ2RKCl3
+R14
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R5
+R6
 Pstate_mapping_pkg
 R1
-R2
-!i122 46
-R16
-R3
-R18
-R19
+R10
+R20
+R11
+R22
+R23
 l0
-L5 1
-V_n>KG2=c5ik@?C?MCGXWk0
-!s100 `D<]7[lJK[NbKf4`C2Gff0
-R6
+L4
+VLX8VR<C=Jg>7D_=@YB<6g0
+!s100 7FTRzV[Y=;2^kV_Ne[j`62
+R14
 32
 b1
-R13
+R24
 !i10b 1
-R14
-R20
-R21
+R25
+R26
+R27
 !i113 1
-R9
-R10
-Bbody
-R17
-R1
-R2
-!i122 46
-l0
-L13 1
-VS4EI5VF6FcgST37Z8_^=m3
-!s100 _TMh;F7ObX]9j0_i>BEjK1
+R5
 R6
-32
-R13
-!i10b 1
-R14
-R20
+Bbody
 R21
-!i113 1
-R9
+R1
 R10
+l0
+L12
+Z31 V[FIY<>MWNHePMi7[M_V@o3
+Z32 !s100 7[Ol;Iz9_ZJl@CVY8cY?Z3
+R14
+32
+R24
+!i10b 1
+R25
+R26
+R27
+!i113 1
+R5
+R6
 Etb_simple_fir
-Z22 w1733672638
+Z33 w1733672638
 R0
 R1
 R2
 !i122 37
 R3
-R18
-R19
+Z34 8C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd
+Z35 FC:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd
 l0
 L5 1
 VQXz;@choX@AOg0387jKe;2
 !s100 0d`BA^d`f5E>Rm_m=8FGn2
-R6
+R4
 32
-Z23 !s110 1733672641
+Z36 !s110 1733672641
 !i10b 1
-Z24 !s108 1733672641.000000
-R20
-R21
+Z37 !s108 1733672641.000000
+Z38 !s90 -reportprogress|300|-work|work|-2002|-explicit|-stats=none|C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd|
+Z39 !s107 C:\Users\Kyomoto\FIRLowpassFilter_PSDProject\fir_tb.vhd|
 !i113 1
-R9
-R10
+R5
+R6
 Asim
 R0
 R1
@@ -201,13 +195,13 @@ l34
 L8 95
 VnVXhTDBceFeh[=DaVkS[Z0
 !s100 ]AaoJ59J^Rjm2T[^LD05k2
-R6
+R4
 32
-R23
+R36
 !i10b 1
-R24
-R20
-R21
+R37
+R38
+R39
 !i113 1
-R9
-R10
+R5
+R6

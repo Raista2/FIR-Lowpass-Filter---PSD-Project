@@ -90,7 +90,7 @@ Generates a clock signal with a 10 ns period.
 ---
 
 ### **Simulation Parameters**
-- **SAMPLE_RATE**: `100_000.0 Hz` (100 kHz sampling rate).
+- **SAMPLE_RATE**: `500_000.0 Hz` (500 kHz sampling rate).
 - **CLK_PERIOD**: `10 ns`.
 
 ---

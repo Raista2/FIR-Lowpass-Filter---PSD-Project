@@ -1,4 +1,3 @@
-
 library IEEE;
 use IEEE.std_logic_1164.all;
 
@@ -35,7 +34,7 @@ end entity simple_fir_tb;
 
 architecture testbench of simple_fir_tb is
     -- Simulation parameters
-    constant SAMPLE_RATE : real := 100_000.0;  -- 100 kHz sampling rate
+    constant SAMPLE_RATE : real := 500_000.0;  -- 500 kHz sampling rate
     constant CLK_PERIOD : time := 10 ns;
 
     -- Signals
@@ -46,9 +45,10 @@ architecture testbench of simple_fir_tb is
     signal sine_1kHz : std_logic_vector(15 downto 0);
     signal sine_15kHz : std_logic_vector(15 downto 0);
     signal current_state : state_type := idle;
+    signal state_out_tb : std_logic_vector(1 downto 0) := (others => '0');
 
 begin
-    -- Clock generation
+    -- Clock generation process
     clk_process: process
     begin
         clk <= '0';
@@ -60,15 +60,22 @@ begin
     -- Device Under Test (DUT)
     dut: entity work.simple_fir
         port map (
-            clk => clk,
-            reset => reset,
+            clk          => clk,
+            reset        => reset,
             input_signal => input_signal,
-            sine_1kHz => sine_1kHz,
-            sine_15kHz => sine_15kHz,
-            output_signal => output_signal
+            sine_1kHz    => sine_1kHz,
+            sine_15kHz   => sine_15kHz,
+            output_signal => output_signal,
+            state_out    => state_out_tb
         );
 
-    -- Stimulus process
+    -- Convert the DUT's state_out to the local enumerated type
+    state_decoder: process(state_out_tb)
+    begin
+        current_state <= state_type'val(to_integer(unsigned(state_out_tb)));
+    end process;
+
+    -- Stimulus process to generate input signals
     stimulus: process
         variable low_freq_amp : real := 32767.0 * 0.8;  -- 1 kHz sine wave amplitude
         variable high_freq_amp : real := 32767.0 * 0.2;  -- 15 kHz sine wave amplitude
@@ -130,4 +137,3 @@ begin
     end process;
 
 end architecture testbench;
-

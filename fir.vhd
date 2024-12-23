@@ -15,8 +15,8 @@ entity simple_fir is
     );
 end entity simple_fir;
 
-
 architecture rtl of simple_fir is
+    -- Define the states of the FSM
     type state_type is (idle, load, compute, output_result);
     signal current_state : state_type := idle;
     
@@ -34,16 +34,18 @@ architecture rtl of simple_fir is
         to_signed(integer(-0.0024 * 2**17), 18)
     );
 
+    -- Delay line to store input samples
     type delay_line_type is array(0 to 8) of signed(17 downto 0);
     signal delay_line : delay_line_type := (others => (others => '0'));
-    signal acc : signed(35 downto 0);
-    signal mac_count : integer range 0 to 8;
+    signal acc : signed(35 downto 0); -- Accumulator for MAC operations
+    signal mac_count : integer range 0 to 8; -- Counter for MAC operations
 
 begin
     process(clk, reset)
-        variable temp_mult : signed(35 downto 0);
+        variable temp_mult : signed(35 downto 0); -- Temporary variable for multiplication
     begin
         if reset = '1' then
+            -- Reset all signals
             current_state <= idle;
             delay_line <= (others => (others => '0'));
             acc <= (others => '0');
@@ -52,12 +54,13 @@ begin
         elsif rising_edge(clk) then
             case current_state is
                 when idle =>
+                    -- Initialize accumulator and MAC counter
                     acc <= (others => '0');
                     mac_count <= 0;
                     current_state <= load;
 
                 when load =>
-                    -- Shift delay line
+                    -- Shift delay line and load new input sample
                     for i in 8 downto 1 loop
                         delay_line(i) <= delay_line(i-1);
                     end loop;
@@ -83,11 +86,13 @@ begin
                     end if;
 
                 when output_result =>
+                    -- Output the result and shift accumulator
                     output_signal <= std_logic_vector(resize(shift_right(acc, 17), 16));
                     current_state <= idle;
 
             end case;
         end if;
     end process;
+    -- Output the current state of the FSM
     state_out <= std_logic_vector(to_unsigned(state_type'pos(current_state), 2));
 end architecture rtl;
